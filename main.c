@@ -9,7 +9,7 @@
 #include <windows.h>
 #endif
 
-#define MAX_STRAWBERRIES 100 // Максимальное количество клубник
+#define MAX_STRAWBERRIES 100 // РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РєР»СѓР±РЅРёРє
 
 int main() 
 {
@@ -25,14 +25,14 @@ int main()
 
     do 
     {
-        printf("\nМеню:\n");
-        printf("1. Добавить клубнику\n");
-        printf("2. Вывести информацию о всех клубниках\n");
-        printf("3. Отсортировать клубники по названию\n");
-        printf("4. Найти клубнику по названию\n");
-        printf("5. Удалить клубнику по цвету\n");
-        printf("0. Выйти\n");
-        printf("Выберите действие: ");
+        printf("\nРњРµРЅСЋ:\n");
+        printf("1. Р”РѕР±Р°РІРёС‚СЊ РєР»СѓР±РЅРёРєСѓ\n");
+        printf("2. Р’С‹РІРµСЃС‚Рё РёРЅС„РѕСЂРјР°С†РёСЋ Рѕ РІСЃРµС… РєР»СѓР±РЅРёРєР°С…\n");
+        printf("3. РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ РєР»СѓР±РЅРёРєРё РїРѕ РЅР°Р·РІР°РЅРёСЋ\n");
+        printf("4. РќР°Р№С‚Рё РєР»СѓР±РЅРёРєСѓ РїРѕ РЅР°Р·РІР°РЅРёСЋ\n");
+        printf("5. РЈРґР°Р»РёС‚СЊ РєР»СѓР±РЅРёРєСѓ РїРѕ С†РІРµС‚Сѓ\n");
+        printf("0. Р’С‹Р№С‚Рё\n");
+        printf("Р’С‹Р±РµСЂРёС‚Рµ РґРµР№СЃС‚РІРёРµ: ");
         scanf_s("%d", &choice);
 
         switch (choice) 
@@ -45,12 +45,12 @@ int main()
             break;
         case 3:
             sort_strawberries(strawberries, num_strawberries);
-            printf("\nКлубники отсортированы по названию.\n");
+            printf("\nРљР»СѓР±РЅРёРєРё РѕС‚СЃРѕСЂС‚РёСЂРѕРІР°РЅС‹ РїРѕ РЅР°Р·РІР°РЅРёСЋ.\n");
             break;
         case 4:
         {
             char name[50];
-            printf("\nВведите название для поиска: ");
+            printf("\nР’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РґР»СЏ РїРѕРёСЃРєР°: ");
             scanf_s("%49s", name, sizeof(name));
             search_strawberry_by_name(strawberries, num_strawberries, name);
         }
@@ -58,22 +58,22 @@ int main()
         case 5:
         {
             char color[20];
-            printf("\nВведите цвет для удаления: ");
+            printf("\nР’РІРµРґРёС‚Рµ С†РІРµС‚ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ: ");
             scanf_s("%19s", color, sizeof(color));
             remove_strawberry_by_color(strawberries, &num_strawberries, color);
-            printf("\nКлубники с цветом '%s' удалены.\n", color);
+            printf("\nРљР»СѓР±РЅРёРєРё СЃ С†РІРµС‚РѕРј '%s' СѓРґР°Р»РµРЅС‹.\n", color);
         }
         break;
         case 0:
-            printf("Программа завершена.\n");
+            printf("РџСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂС€РµРЅР°.\n");
             break;
         default:
-            printf("Некорректный ввод.\n");
+            printf("РќРµРєРѕСЂСЂРµРєС‚РЅС‹Р№ РІРІРѕРґ.\n");
             break;
         }
     } while (choice != 0);
 
-    // Освобождение памяти, выделенной под клубники
+    // РћСЃРІРѕР±РѕР¶РґРµРЅРёРµ РїР°РјСЏС‚Рё, РІС‹РґРµР»РµРЅРЅРѕР№ РїРѕРґ РєР»СѓР±РЅРёРєРё
     for (int i = 0; i < num_strawberries; i++) 
     {
         destroy_strawberry(strawberries[i]);
